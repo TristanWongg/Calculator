@@ -49,7 +49,7 @@ operators.forEach(op => {
     op.addEventListener('click', () => {
         if (num1===null){
             operator = convertHTML(op.textContent);
-            num1 = parseInt(input);
+            num1 = parseFloat(input);
             input = "";
         }
         else {
@@ -58,17 +58,13 @@ operators.forEach(op => {
                 return;
             }
             else{
-                num2 = parseInt(input);
+                num2 = parseFloat(input);
                 total = operate(operator, num1, num2);
+                total = Number(total.toFixed(13));
                 operator = convertHTML(op.textContent);
                 display.textContent = total;
                 num1 = total;
                 input = ""
-                console.log(`num1: ${num1}`);
-                console.log(`num2: ${num2}`);
-                console.log(`operator: ${operator}`);
-                console.log(`input: ${input}`);
-                console.log(`total: ${total}`);
             }
         }
     });
@@ -102,16 +98,19 @@ equal.addEventListener('click', () =>{
         return;
     }
     else{
-        num2 = parseInt(input);
+        num2 = parseFloat(input);
         total = operate(operator, num1, num2);
+        total = Number(total.toFixed(13));
         display.textContent = total;
         num1 = total;
         input = ""
-        console.log(`num1: ${num1}`);
-        console.log(`num2: ${num2}`);
-        console.log(`operator: ${operator}`);
-        console.log(`input: ${input}`);
-        console.log(`total: ${total}`);
+    }
+});
+
+decimal.addEventListener('click', () => {
+    if (!input.includes(decimal.textContent)){
+        input += decimal.textContent;
+        display.textContent = input;
     }
 });
                 
