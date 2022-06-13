@@ -3,12 +3,13 @@
 }
 
 body{
-    background: whitesmoke;
+    background: lavenderblush;
     padding-bottom: 30px;
     padding-top: 100px;
 }
 
 #calculator{
+    background-color:lavender;
     border: 2px solid black;
     max-width: 400px;
     margin: 0 auto;
